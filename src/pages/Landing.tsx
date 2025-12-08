@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, CheckCircle, BarChart4, Shield, Brain, X, ArrowRight, Globe, Rocket, Phone, Lightbulb, FileCheck, Scale, Settings, TrendingDown } from 'lucide-react';
+import { ChevronRight, CheckCircle, BarChart4, Shield, Brain, X, ArrowRight, Globe, Rocket, Phone, Lightbulb, FileCheck, Scale, Settings, TrendingDown, Mail } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
-
+import ScheduleMeeting from '../components/ScheduleMeeting';
 const Landing: React.FC = () => {
   const { user } = useAuth();
   const [showCookieBanner, setShowCookieBanner] = useState(false);
@@ -27,6 +27,9 @@ const Landing: React.FC = () => {
     setShowCookieBanner(false);
   };
 
+  const [open, setOpen] = useState(false);
+
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navigation - Updated with blue background and white text */}
@@ -38,23 +41,21 @@ const Landing: React.FC = () => {
             </span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#hero" className="text-white/80 hover:text-white transition-colors font-medium">
-              Features
+            <a href="#problem-section" className="text-white/80 hover:text-white transition-colors font-medium font-primary">
+              Product
             </a>
-            <a href="#use-cases" className="text-white/80 hover:text-white transition-colors font-medium">
+            <a href="#use-cases" className="text-white/80 hover:text-white transition-colors font-medium font-primary">
               Use Cases
             </a>
-            <a href="#built-for" className="text-white/80 hover:text-white transition-colors font-medium">
-              Built For
+            <a href="#how-it-works" className="text-white/80 hover:text-white transition-colors font-medium font-primary">
+              How it Works
             </a>
-            <a href="#use-cases" className="text-white/80 hover:text-white transition-colors font-medium">
+            {/* <a href="#use-cases" className="text-white/80 hover:text-white transition-colors font-medium">
               Use Cases
-            </a>
+            </a> */}
           </nav>
           <div>
-            <Link to="/dashboard">
-              <Button className="bg-white text-trustiq-blue-900 hover:bg-trustiq-neutral-100">Schedule a Call</Button>
-            </Link>
+            <ScheduleMeeting />
           </div>
         </div>
       </header>
@@ -65,22 +66,23 @@ const Landing: React.FC = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="inline-block px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-sm font-medium mb-2 border border-white/20">
+              <div className="inline-block px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-sm font-medium mb-2 border border-white/20 font-primary">
                 AI-Powered Trust at Scale
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white font-primary">
                 Launch AI-Powered <span className="text-trustiq-teal">Lending Agents in Just 7 Days</span>
               </h1>
               <p className="text-xl text-trustiq-neutral-100">
                 Reduce manual verification, underwriting, and compliance workload with plug-and-play AI agents built for lending teams, LOS platforms, and digital lenders. Integrates natively with any tech stack without needing to rebuild your systems.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/auth">
-                  <Button size="lg" className="bg-trustiq-teal hover:bg-trustiq-teal-600 text-trustiq-blue-900">
+                {/* <Link to="/auth">
+                  <Button size="lg" className="bg-trustiq-teal hover:bg-trustiq-teal-600 text-trustiq-blue-900  font-primary font-semibold">
                     Book Live Demo
                     <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
-                </Link>
+                </Link> */}
+                <ScheduleMeeting className="bg-trustiq-teal hover:bg-trustiq-teal-600 text-trustiq-blue-900  font-primary font-semibold" />
                 {/* <Link to="/auth">
                   <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white/10">
                     Request Demo
@@ -108,21 +110,21 @@ const Landing: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <h2 className="text-xl lg:text-3xl md:text-4xl font-bold text-tech-accent mb-2">40+</h2>
+              <h2 className="text-xl lg:text-3xl md:text-4xl font-bold text-tech-accent mb-2 font-primary">40+</h2>
               <p className="text-l text-gray-600 leading-relaxed">AI Lending Agents <br /> Configured & Deployed</p>
             </div>
             <div className="text-center"  >
-              <h2 className="text-xl lg:text-3xl md:text-4xl font-bold text-tech-accent mb-2">7 Days</h2>
+              <h2 className="text-xl lg:text-3xl md:text-4xl font-bold text-tech-accent mb-2 font-primary">7 Days</h2>
               <p className="text-l text-gray-600 leading-relaxed">Avg Time to Go Live <br />
                 with LOS</p>
             </div>
             <div className="text-center">
-              <h2 className="text-xl lg:text-3xl md:text-4xl font-bold text-tech-accent mb-2">100%</h2>
+              <h2 className="text-xl lg:text-3xl md:text-4xl font-bold text-tech-accent mb-2 font-primary">100%</h2>
               <p className="text-l text-gray-600 leading-relaxed">Whitelabeled Deployment <br />
                 Support</p>
             </div>
             <div className="text-center">
-              <h2 className="text-xl lg:text-3xl md:text-4xl font-bold text-tech-accent mb-2">60%</h2>
+              <h2 className="text-xl lg:text-3xl md:text-4xl font-bold text-tech-accent mb-2 font-primary">60%</h2>
               <p className="text-l text-gray-600 leading-relaxed">Reduction in Manual <br />
                 Underwriting Effort</p>
             </div>
@@ -131,7 +133,7 @@ const Landing: React.FC = () => {
       </section>
 
       {/* { Problem Section} */}
-      <section className="py-20 bg-white">
+      <section id="problem-section" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
 
@@ -144,7 +146,7 @@ const Landing: React.FC = () => {
             <div className="space-y-8">
               <div className="mb-4 md:mb-8 lg:mb-16">
                 <h2
-                  className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-6"
+                  className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-6 font-primary"
                 >
                   The Problem
                 </h2>
@@ -154,7 +156,7 @@ const Landing: React.FC = () => {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold text-trustiq-blue-900 mb-8">The Value Proposition</h2>
+                <h2 className="text-3xl font-bold text-trustiq-blue-900 mb-8 font-primary">The Value Proposition</h2>
 
                 <div className="grid md:grid-cols-1 gap-6">
                   <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
@@ -213,7 +215,7 @@ const Landing: React.FC = () => {
       <section id="built-for" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-trustiq-blue-900 mb-4">Built For
+            <h2 className="text-3xl font-bold text-trustiq-blue-900 mb-4 font-primary">Built For
             </h2>
 
           </div>
@@ -228,7 +230,7 @@ const Landing: React.FC = () => {
                     <BarChart4 className="h-6 w-6 text-trustiq-teal" />
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Lending companies and NBFCs
+                <h3 className="text-xl font-semibold mb-3 font-primary">Lending companies and NBFCs
                 </h3>
               </CardContent>
             </Card>
@@ -242,7 +244,7 @@ const Landing: React.FC = () => {
                     <Brain className="h-6 w-6 text-trustiq-teal" />
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Digital and embedded lending platforms</h3>
+                <h3 className="text-xl font-semibold mb-3 font-primary">Digital and embedded lending platforms</h3>
               </CardContent>
             </Card>
 
@@ -255,7 +257,7 @@ const Landing: React.FC = () => {
                     <Shield className="h-6 w-6 text-trustiq-teal" />
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">LOS and LMS providers
+                <h3 className="text-xl font-semibold mb-3 font-primary">LOS and LMS providers
                 </h3>
 
               </CardContent>
@@ -269,7 +271,7 @@ const Landing: React.FC = () => {
                     <Shield className="h-6 w-6 text-trustiq-teal" />
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">BFSI and fintech underwriting teams
+                <h3 className="text-xl font-semibold mb-3 font-primary">BFSI and fintech underwriting teams
                 </h3>
               </CardContent>
             </Card>
@@ -282,7 +284,7 @@ const Landing: React.FC = () => {
                     <Shield className="h-6 w-6 text-trustiq-teal" />
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">BNPL and co-lending platforms
+                <h3 className="text-xl font-semibold mb-3 font-primary">BNPL and co-lending platforms
 
                 </h3>
               </CardContent>
@@ -295,7 +297,7 @@ const Landing: React.FC = () => {
       <section id="use-cases" className="py-20 bg-trustiq-blue-50">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-trustiq-blue-900 mb-4">Use Cases</h2>
+            <h2 className="text-3xl font-bold text-trustiq-blue-900 mb-4 font-primary">Use Cases</h2>
             <p className="text-lg text-trustiq-neutral-600">Deploy specialized AI agents for every step of your lending workflow.</p>
           </div>
 
@@ -308,7 +310,7 @@ const Landing: React.FC = () => {
                 <div className="bg-trustiq-teal/10 h-12 w-12 rounded-full flex items-center justify-center">
                   <Globe className="h-6 w-6 text-trustiq-teal" />
                 </div>
-                <h3 className="text-xl font-semibold">Identity Verification
+                <h3 className="text-xl font-semibold font-primary">Identity Verification
                 </h3>
                 <p className="text-trustiq-neutral-600">Auto-verify identity, match data across documents, detect tampering and highlight discrepancies.</p>
 
@@ -323,7 +325,7 @@ const Landing: React.FC = () => {
                 <div className="bg-trustiq-teal/10 h-12 w-12 rounded-full flex items-center justify-center">
                   <Globe className="h-6 w-6 text-trustiq-teal" />
                 </div>
-                <h3 className="text-xl font-semibold">Eligibility Check</h3>
+                <h3 className="text-xl font-semibold font-primary">Eligibility Check</h3>
                 <p className="text-trustiq-neutral-600">Assess eligibility, compare against loan policies, identify exceptions and calculate affordability.</p>
 
               </CardContent>
@@ -337,7 +339,7 @@ const Landing: React.FC = () => {
                 <div className="bg-trustiq-teal/10 h-12 w-12 rounded-full flex items-center justify-center">
                   <Globe className="h-6 w-6 text-trustiq-teal" />
                 </div>
-                <h3 className="text-xl font-semibold">Financials Analyser
+                <h3 className="text-xl font-semibold font-primary">Financials Analyser
                 </h3>
                 <p className="text-trustiq-neutral-600">Analyze bank statements, income proofs, ratios, transaction behavior and repayment capability.</p>
 
@@ -351,7 +353,7 @@ const Landing: React.FC = () => {
                 <div className="bg-trustiq-teal/10 h-12 w-12 rounded-full flex items-center justify-center">
                   <Globe className="h-6 w-6 text-trustiq-teal" />
                 </div>
-                <h3 className="text-xl font-semibold">Business Documents Verifier
+                <h3 className="text-xl font-semibold font-primary">Business Documents Verifier
                 </h3>
                 <p className="text-trustiq-neutral-600">Review business registrations, licenses, ownership structure, financial history and compliance readiness.</p>
 
@@ -365,7 +367,7 @@ const Landing: React.FC = () => {
                 <div className="bg-trustiq-teal/10 h-12 w-12 rounded-full flex items-center justify-center">
                   <Globe className="h-6 w-6 text-trustiq-teal" />
                 </div>
-                <h3 className="text-xl font-semibold">Property Agent
+                <h3 className="text-xl font-semibold font-primary">Property Agent
                 </h3>
                 <p className="text-trustiq-neutral-600">Evaluate property documents, valuation inputs, geographic checks, encumbrances and validation points.</p>
 
@@ -379,7 +381,7 @@ const Landing: React.FC = () => {
                 <div className="bg-trustiq-teal/10 h-12 w-12 rounded-full flex items-center justify-center">
                   <Globe className="h-6 w-6 text-trustiq-teal" />
                 </div>
-                <h3 className="text-xl font-semibold">Custom Agent
+                <h3 className="text-xl font-semibold font-primary">Custom Agent
                 </h3>
                 <p className="text-trustiq-neutral-600">Create custom agents based on unique loan products, underwriting frameworks or industry-specific rules, without code changes.</p>
 
@@ -393,18 +395,19 @@ const Landing: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-trustiq-blue-900 mb-4">Introducing Agent Builder for Lending Tech
+            <h2 className="text-3xl font-bold text-trustiq-blue-900 mb-4 font-primary">Introducing Agent Builder for Lending Tech
             </h2>
             <p className="text-lg text-trustiq-neutral-600">A configurable, no-code AI platform that allows lending teams to create, deploy and manage intelligent agents and workflows. The solution is fully whitelabeled and integrates natively with any existing LOS, regardless of technology stack or form builder architecture.</p>
           </div>
 
           <div className="text-center mb-16">
-            <Link to="/auth">
-              <Button size="lg" className="bg-trustiq-teal hover:bg-trustiq-teal-600 text-trustiq-blue-900">
+            {/* <Link to="/auth">
+              <Button size="lg" className="bg-trustiq-teal hover:bg-trustiq-teal-600 text-trustiq-blue-900 font-primary">
                 Book Live Demo
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
-            </Link>
+            </Link> */}
+            <ScheduleMeeting className="bg-trustiq-teal hover:bg-trustiq-teal-600 text-trustiq-blue-900  font-primary font-semibold" />
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -418,7 +421,7 @@ const Landing: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold mb-5">
+                <h3 className="text-xl font-semibold mb-5 font-primary">
                   Handles multi-step and dynamic application structures
 
                 </h3>
@@ -436,7 +439,7 @@ const Landing: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold mb-5">
+                <h3 className="text-xl font-semibold mb-5 font-primary">
                   Compatible with modern and legacy systems without rebuild
                 </h3>
 
@@ -452,7 +455,7 @@ const Landing: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold mb-5">
+                <h3 className="text-xl font-semibold mb-5 font-primary">
                   Works with PDFs, images, screenshots, and digital forms
                 </h3>
 
@@ -467,7 +470,7 @@ const Landing: React.FC = () => {
       <section id="how-it-works" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-trustiq-blue-900 mb-4">How It Works
+            <h2 className="text-3xl font-bold text-trustiq-blue-900 mb-4 font-primary">How It Works
             </h2>
             <p className="text-lg text-trustiq-neutral-600">From integration to deployment in days, not months.</p>
           </div>
@@ -483,7 +486,7 @@ const Landing: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold mb-5">
+                <h3 className="text-xl font-semibold mb-5 font-primary">
                   Deployment Flow
                 </h3>
                 <ol className="list-decimal list-inside text-left text-trustiq-neutral-600 space-y-1">
@@ -506,7 +509,7 @@ const Landing: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold mb-5">
+                <h3 className="text-xl font-semibold mb-5 font-primary">
                   Integrations
                 </h3>
                 <ol className="list-decimal list-inside text-left text-trustiq-neutral-600 space-y-1">
@@ -529,7 +532,7 @@ const Landing: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold mb-5">
+                <h3 className="text-xl font-semibold mb-5 font-primary">
                   Security & Compliance
 
                 </h3>
@@ -548,7 +551,7 @@ const Landing: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="text-white mb-20">
+      <section className="text-white">
         <div
           className="w-full  bg-opacity-90 bg-blend-multiply py-10 "
           style={{
@@ -595,12 +598,16 @@ const Landing: React.FC = () => {
 
               {/* RIGHT BUTTON */}
               <div className="mt-6 md:mt-0">
-                <a
+              <ScheduleMeeting
+                className="bg-gray-900 text-white px-8 py-6 rounded-lg text-lg font-semibold hover:bg-gray-800 transition font-primary"
+                buttonText="Schedule a Call"
+              />
+                {/* <a
                   href="/schedule-meeting"
                   className="bg-gray-900 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-800 transition"
                 >
                   Schedule a Call
-                </a>
+                </a> */}
               </div>
 
             </div>
@@ -609,39 +616,38 @@ const Landing: React.FC = () => {
       </section>
 
       {/* Footer */}
-      {/* <footer className="bg-trustiq-blue-900 text-white py-12">
+      <footer className="bg-trustiq-blue-900 text-white py-12">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             <div className="sm:col-span-2 lg:col-span-1">
               <h3 className="text-xl font-bold mb-4">
                 Trust<span className="text-trustiq-teal">HQ</span>
               </h3>
-              <p className="text-trustiq-neutral-300 text-sm leading-relaxed">
-                AI-powered lending agents that automate document validation, underwriting, and compliance workflows. Deploy in 7 days without changing your existing LOS.
+              <p className="text-trustiq-neutral-300 text-sm leading-relaxed mb-4">
+                Got an AI idea or existing app you want to enhance with AI?
               </p>
+              <ScheduleMeeting
+                className="bg-trustiq-teal hover:bg-trustiq-teal-600 text-trustiq-blue-900 font-primary font-semibold text-sm"
+                buttonText="Let's Talk"
+              />
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-white">Product</h4>
+              <h4 className="font-semibold mb-4 text-white">Options</h4>
               <ul className="space-y-2">
+                <li>
+                  <a href="#problem-section" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
+                    Product
+                  </a>
+                </li>
                 <li>
                   <a href="#use-cases" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
                     Use Cases
                   </a>
                 </li>
                 <li>
-                  <a href="#built-for" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
-                    Built For
-                  </a>
-                </li>
-                <li>
                   <a href="#how-it-works" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
-                    How It Works
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
-                    API Docs
+                    How it Works
                   </a>
                 </li>
               </ul>
@@ -651,86 +657,50 @@ const Landing: React.FC = () => {
               <h4 className="font-semibold mb-4 text-white">Company</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
+                  <a href="https://www.onelabventures.com/about-us" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm" target="_blank" rel="noopener noreferrer">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4 text-white">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
+                  <a href="https://www.onelabventures.com/privacy-policy" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm" target="_blank" rel="noopener noreferrer">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
-                    Terms of Service
+                  <a href="https://www.onelabventures.com/careers" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm" target="_blank" rel="noopener noreferrer">
+                    Careers
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm">
-                    Security
+                  <a href="https://www.onelabventures.com/case-studies" className="text-trustiq-neutral-300 hover:text-trustiq-teal transition-colors text-sm" target="_blank" rel="noopener noreferrer">
+                    Case Studies
                   </a>
                 </li>
               </ul>
             </div>
+
           </div>
 
           <div className="mt-12 border-t border-trustiq-blue-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-trustiq-neutral-400 text-sm text-center md:text-left">
-              © {new Date().getFullYear()} TrustHQ Technologies. All rights reserved.
+              © 2025 Onelab Ventures Pvt Ltd
             </div>
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-trustiq-neutral-400 hover:text-trustiq-teal transition-colors"
-                aria-label="LinkedIn"
-              >
+              {/* <a href="mailto:info@onelabventures.com?leadOwner=Harish+Lodhi&leadSource=SDR+Harish&mailId=harish%40onelabventures.com" aria-label="Email us" target="_blank" rel="noopener noreferrer">
+              </a> */}
+              <a href="https://www.linkedin.com/company/onelab-ventures?leadOwner=Harish+Lodhi&leadSource=SDR+Harish&mailId=harish%40onelabventures.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
                 </svg>
               </a>
-              <a
-                href="#"
-                className="text-trustiq-neutral-400 hover:text-trustiq-teal transition-colors"
-                aria-label="Twitter"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" clipRule="evenodd" />
-                </svg>
+              <a href="mailto:info@onelabventures.com?subject=Contact%20from%20TrustHQ&body=Hello%2C%20I%27d%20like%20to%20get%20in%20touch." aria-label="Email us">
+                <Mail className="h-5 w-5" />
               </a>
-              <a
-                href="#"
-                className="text-trustiq-neutral-400 hover:text-trustiq-teal transition-colors"
-                aria-label="YouTube"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 01-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 01-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 01 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clipRule="evenodd" />
-                </svg>
-              </a>
+
             </div>
           </div>
         </div>
-      </footer> */}
+      </footer>
 
       {/* Cookie Banner */}
       {showCookieBanner && (

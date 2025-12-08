@@ -154,6 +154,8 @@ export default {
 			},
 			fontFamily: {
 				'sans': ['Inter', 'sans-serif'],
+				primary: "var(--creote-family-one)",
+				secondary: "var(--creote-family-two)",
 			}
 		}
 	},
