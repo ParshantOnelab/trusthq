@@ -8,7 +8,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import Landing from "@/pages/Landing";
 import NotFound from "@/pages/NotFound";
-
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ScheduleMeeting from "@/pages/ScheduleMeeting";
+import ScrollToTop from "@/components/ScrollToTop";
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
 
@@ -21,22 +24,16 @@ const App: React.FC = () => {
           <Sonner />
           <BrowserRouter>
             <AuthProvider>
+              <ScrollToTop />
+          <Header />
               <Routes>
                 <Route path="/" element={<Landing />} />
-                {/* <Route path="/auth" element={<Auth />} /> */}
-                
-                {/* Protected Routes */}
-                {/* <Route element={<MainLayout />}>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/lookup" element={<CompanyLookup />} />
-                  <Route path="/company/:id" element={<CompanyProfile />} />
-                  <Route path="/apis" element={<ApiPage />} />
-                  <Route path="/alerts" element={<AlertsPage />} />
-                </Route> */}
+                <Route path="/schedule-meeting" element={<ScheduleMeeting />} />
                 
                 {/* 404 Route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
+          <Footer />
             </AuthProvider>
           </BrowserRouter>
         </TooltipProvider>
