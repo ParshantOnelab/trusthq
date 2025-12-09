@@ -47,12 +47,12 @@ const Landing: React.FC = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white font-primary">
                 Launch AI-Powered <span className="text-trustiq-teal">Lending Agents in Just 7 Days</span>
               </h1>
-              <p className="text-xl text-trustiq-neutral-100">
+              <p className="text-[16px] text-trustiq-neutral-100">
                 Reduce manual verification, underwriting, and compliance workload with plug-and-play AI agents built for lending teams, LOS platforms, and digital lenders. Integrates natively with any tech stack without needing to rebuild your systems.
               </p>
               <div className="flex flex-wrap gap-4">
                   <Link to="/schedule-meeting">
-                    <Button size="lg" className="bg-trustiq-teal hover:bg-trustiq-teal-600 text-trustiq-blue-900  font-primary font-semibold">
+                    <Button size="lg" className="bg-trustiq-teal hover:bg-trustiq-teal-600 text-trustiq-blue-900  font-primary font-semibold text-[15px]">
                       Book Live Demo
                       <ChevronRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -541,7 +541,7 @@ const Landing: React.FC = () => {
 
               {/* LEFT TEXT AREA */}
               <div className="max-w-3xl text-white">
-                <h2 className="text-3xl md:text-4xl mb-4 text-white text-[38px] leading-[50px] font-bold  pb-[10px]">
+                <h2 className="text-3xl md:text-4xl mb-4 text-white text-[38px] leading-[50px] font-bold  pb-[10px] font-primary">
                 Smarter Lending Starts Here.
                 </h2>
 
@@ -579,7 +579,7 @@ const Landing: React.FC = () => {
                 /> */}
                 <a
                   href="/schedule-meeting"
-                  className="bg-gray-900 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-800 transition"
+                  className="bg-gray-900 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-800 transition font-primary"
                 >
                   Schedule a Call
                 </a>
