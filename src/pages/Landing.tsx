@@ -114,7 +114,7 @@ const Landing: React.FC = () => {
 
             <div className="relative">
               <img
-                src="/the_problem.png"
+                src="https://new-website-onelab.s3.ap-south-1.amazonaws.com/images/the_problem.png"
                 className="rounded-2xl"
               />
             </div>
@@ -542,31 +542,31 @@ const Landing: React.FC = () => {
               {/* LEFT TEXT AREA */}
               <div className="max-w-3xl text-white">
                 <h2 className="text-3xl md:text-4xl mb-4 text-white text-[38px] leading-[50px] font-bold  pb-[10px]">
-                  Let's Build Something Smart <br /> Together
+                Smarter Lending Starts Here.
                 </h2>
 
                 <p className="text-lg mb-3 text-white">
-                  No fluff. No lock-ins. Just intelligent products, built right.
+                No fluff. No disruption. Only results.
                 </p>
 
                 <p className="flex flex-wrap items-center gap-4 text-lg text-white">
                   <span className="flex items-center gap-1">
                     <Rocket className="h-5 w-5 text-pink-300" />
-                    Free consultation
+                    Talk to us today
                   </span>
-
+                  {/* Talk to us today • Response in 24 hours • No obligations */}
                   <span>•</span>
 
                   <span className="flex items-center gap-1">
                     <Phone className="h-5 w-5 text-pink-300" />
-                    Same-day response
+                    Response in 24 hours
                   </span>
 
                   <span>•</span>
 
                   <span className="flex items-center gap-1">
                     <Lightbulb className="h-5 w-5 text-yellow-300" />
-                    No commitment required
+                    No obligations
                   </span>
                 </p>
               </div>

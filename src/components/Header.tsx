@@ -7,9 +7,11 @@ export default function Header() {
         <header className="bg-trustiq-blue-900 text-white sticky top-0 z-50">
             <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                 <div className="flex items-center space-x-2">
-                    <span className="text-2xl font-bold text-white">
-                        Trust<span className="text-trustiq-teal">HQ</span>
-                    </span>
+                    <Link to="/">
+                        <span className="text-2xl font-bold text-white">
+                            Trust<span className="text-trustiq-teal">HQ</span>
+                        </span>
+                    </Link>
                 </div>
                 <nav className="hidden md:flex items-center space-x-8">
                     <a href="/#problem-section" className="text-white/80 hover:text-white transition-colors font-medium font-primary">
